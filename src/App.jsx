@@ -17,6 +17,8 @@ import {
   Calendar
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import ParticlesCanvas from './components/ParticlesCanvas';
+import OutcomeChart from './components/OutcomeChart';
 
 const TOWERS = [
   { id: 'nema', name: 'NEMA San Francisco (Tower 1 & 2)', units: 754, committed: 8, target: 10, nextDate: 'Saturday, Oct 24', address: '8 10th St, SF' },
@@ -138,59 +140,66 @@ export default function App() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(14,165,233,0.08),transparent_50%)] pointer-events-none" />
-        <div className="max-w-5xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-700/80 text-xs text-cyan-300">
-            <Truck className="w-4 h-4 text-cyan-400" />
+      <section className="relative pt-16 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <ParticlesCanvas color="14, 165, 233" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(14,165,233,0.12),transparent_60%)] pointer-events-none" />
+        
+        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-sky-500/30 text-xs text-sky-300 font-mono shadow-lg shadow-sky-950/40">
+            <Truck className="w-4 h-4 text-sky-400" />
             <span>Industrial 220°F Steam Rig Dispatched • 10-Unit Collective Tipping Point • 45% Resident Savings</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
-            High-Rise Apartment Tower Deep Cleaning & Extraction Collective
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+            High-Rise Apartment Tower <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">Deep Cleaning & Extraction Collective</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto font-normal leading-relaxed">
+          <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">
             Industrial truck-mounted steam extraction machines cost $100+ to dispatch to a single high-rise condo. CleanDrive pools 10 apartments in your tower for a single-day deep cleaning drive, bringing truck-mount power up the service elevator at 45% off retail.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <a 
               href="#tower-tipping" 
-              className="px-6 py-3.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm rounded-xl transition-all shadow-lg shadow-cyan-500/25 flex items-center gap-2"
+              className="px-6 py-3.5 bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-400 hover:to-cyan-400 text-slate-950 font-bold text-sm rounded-xl transition-all shadow-xl shadow-sky-500/30 flex items-center gap-2 hover:scale-[1.02]"
             >
               <span>Join Your Tower's Drive</span>
               <ArrowRight className="w-4 h-4" />
             </a>
             <a 
               href="#packages" 
-              className="px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold text-sm rounded-xl transition-all flex items-center gap-2"
+              className="px-6 py-3.5 bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-sky-500/30 font-semibold text-sm rounded-xl transition-all flex items-center gap-2 hover:border-sky-400/60"
             >
-              <Droplets className="w-4 h-4 text-cyan-400" />
+              <Droplets className="w-4 h-4 text-sky-400" />
               <span>View Extraction Services</span>
             </a>
           </div>
 
           {/* Market TAM & Metrics */}
           <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
-              <div className="text-2xl font-black text-cyan-400">$787M</div>
+            <div className="bg-slate-900/80 border border-sky-500/20 rounded-xl p-4 backdrop-blur-md">
+              <div className="text-2xl font-black text-sky-400">$787M</div>
               <div className="text-xs text-slate-400 font-medium">High-Rise Cleaning Drive TAM</div>
             </div>
-            <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
+            <div className="bg-slate-900/80 border border-white/10 rounded-xl p-4 backdrop-blur-md">
               <div className="text-2xl font-black text-white">45%</div>
               <div className="text-xs text-slate-400 font-medium">Average Resident Savings</div>
             </div>
-            <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
-              <div className="text-2xl font-black text-cyan-400">10 Units</div>
+            <div className="bg-slate-900/80 border border-sky-500/20 rounded-xl p-4 backdrop-blur-md">
+              <div className="text-2xl font-black text-sky-400">10 Units</div>
               <div className="text-xs text-slate-400 font-medium">Automatic Tipping Quota</div>
             </div>
-            <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
+            <div className="bg-slate-900/80 border border-white/10 rounded-xl p-4 backdrop-blur-md">
               <div className="text-2xl font-black text-white">220°F</div>
               <div className="text-xs text-slate-400 font-medium">True Steam Heat Extraction</div>
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Julien Bek $1:$6 Sequoia Framework + Bklit UI Outcome Engine */}
+      <section className="px-4 sm:px-6 lg:px-8">
+        <OutcomeChart onCtaClick={() => setIsCabModalOpen(true)} />
       </section>
 
       {/* Feature 1: Tipping Point Engine */}
